@@ -27,6 +27,7 @@ public class JDBCExample6 {
 			String password = "kh1234"; 
 			
 			conn = DriverManager.getConnection(url, userName, password);
+			conn.setAutoCommit(false);
 			
 			sc = new Scanner(System.in);
 			System.out.print("아이디 입력 : ");
@@ -35,7 +36,7 @@ public class JDBCExample6 {
 			System.out.print("비밀번호 입력 : ");
 			String pw = sc.nextLine();
 			
-			System.out.print("이름 입력 : ");
+			System.out.print("수정할 이름 입력 : ");
 			String name = sc.nextLine();
 			
 			String sql = """
@@ -49,7 +50,6 @@ public class JDBCExample6 {
 			pstmt.setString(2, id);
 			pstmt.setString(3, pw);
 			
-			conn.setAutoCommit(false);
 			
 			int result = pstmt.executeUpdate();
 			
