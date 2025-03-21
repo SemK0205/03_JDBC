@@ -1,12 +1,12 @@
 package edu.kh.jdbc.run;
 
-import edu.kh.jdbc.view.UserView;
+import edu.kh.jdbc.view.MemberView;
 
 public class Run {
 	
 	public static void main(String[] args) {
 		
-		new UserView().mainMenu();
+		new MemberView().mainView();
 		
 	}
 
