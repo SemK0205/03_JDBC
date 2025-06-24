@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
@@ -41,9 +42,7 @@ public class UserDao {
 		try {
 			
 			// 2. SQL 작성
-			String SQL = """
-					SELECT * FROM TB_USER WHERE USER_ID = ?
-					""";
+			String SQL = "SELECT * FROM TB_USER WHERE USER_ID = ?";
 			
 			// 3. PreparedStatement 객체 생성
 			pstmt = conn.prepareStatement(SQL);
@@ -78,7 +77,7 @@ public class UserDao {
 				
 			}
 			
-		} catch (Exception e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally {
 			// 사용한 JDBC 객체 자원 반환(close)
